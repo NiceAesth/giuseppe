@@ -1,0 +1,13 @@
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+dataclasses-json = "*"
+"discord.py" = {git = "https://github.com/Rapptz/discord.py"}
+
+[dev-packages]
+
+[requires]
+python_version = "3.10"
