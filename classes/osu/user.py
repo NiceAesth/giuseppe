@@ -1,6 +1,10 @@
-from typing import Dict
+from __future__ import annotations
+
 from dataclasses import dataclass
+from typing import Dict
+
 from dataclasses_json import dataclass_json
+
 
 @dataclass_json
 @dataclass(frozen=True)
@@ -13,6 +17,7 @@ class UserInfo:
     country: str
     silence_end: int
     donor_end: int
+
 
 @dataclass_json
 @dataclass(frozen=True)
@@ -27,10 +32,11 @@ class UserStats:
     xh_count: int
     x_count: int
     sh_count: int
-    s_count:int
+    s_count: int
     a_count: int
     rank: int
     country_rank: int
+
 
 @dataclass_json
 @dataclass(frozen=True)

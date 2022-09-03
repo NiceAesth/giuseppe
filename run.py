@@ -1,12 +1,17 @@
-import os
+from __future__ import annotations
+
 import logging
+import os
+
 from classes.bot import Giuseppe
 
-logger = logging.getLogger('discord')
+logger = logging.getLogger("discord")
 bot = Giuseppe()
 
-def list_module(directory) -> "list[str]":
+
+def list_module(directory) -> list[str]:
     return (f for f in os.listdir(directory) if f.endswith(".py"))
+
 
 @bot.listen("on_ready")
 async def on_ready() -> None:
@@ -18,6 +23,7 @@ async def on_ready() -> None:
                 await bot.load_extension(name)
             except Exception as e:
                 logging.error(f"Failed loading module {name} : {e}")
+
 
 if __name__ == "__main__":
     bot.run(reconnect=True)
