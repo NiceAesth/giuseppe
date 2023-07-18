@@ -12,7 +12,9 @@ class Giuseppe(Bot):
         self.config = Config.get_config()
         self.gulag = Gulag()
         super().__init__(
-            **kwargs, command_prefix=self.config.prefix, intents=Intents.all(),
+            **kwargs,
+            command_prefix=self.config.prefix,
+            intents=Intents.all(),
         )
 
     def run(self, **kwargs) -> None:
