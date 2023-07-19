@@ -6,3 +6,4 @@ BASE_GIUSEPPE_API_URL = "https://api.giuseppecord.com"
 
 from .helpers import *
 from .logging import *
+from .humanizer import *

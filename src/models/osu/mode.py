@@ -4,6 +4,8 @@ from enum import IntEnum
 
 from discord.ext import commands
 
+__all__ = ("Mode",)
+
 GAMEMODE_REPR_LIST = (
     "std",
     "taiko",

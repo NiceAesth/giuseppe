@@ -8,6 +8,7 @@ from typing import TYPE_CHECKING
 import discord
 from common.logging import logger
 from discord.ext import commands
+from repository.osu import UserNotFound
 from usecases.gulag_api import GulagError
 
 
@@ -120,10 +121,16 @@ class CommandErrorHandler(commands.Cog):
 
         elif isinstance(error, GulagError):
             await send_message(
-                f"The requested data could not be found.",
+                "The requested data could not be found.",
                 delete_after=10,
             )
             return
+
+        elif isinstance(error, UserNotFound):
+            await send_message(
+                "Please link your profile using the ``link`` command.",
+                delete_after=10,
+            )
 
         embed = discord.Embed(
             title="Oh no! An unexpected error has occured",

@@ -9,6 +9,7 @@ pydantic = "*"
 orjson = "*"
 jishaku = "*"
 motor = {extras = ["srv"], version = "*"}
+emojiflags = "*"
 
 [dev-packages]
 black = "*"

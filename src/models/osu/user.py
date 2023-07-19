@@ -1,10 +1,11 @@
 from __future__ import annotations
 
-from typing import Dict
-
+from emojiflags.lookup import lookup as flag_lookup  # type: ignore
 from pydantic import computed_field
 
 from ..base import FrozenModel
+
+__all__ = ("User", "UserInfo", "UserStats")
 
 
 class UserInfo(FrozenModel):
@@ -27,6 +28,11 @@ class UserInfo(FrozenModel):
     def avatar_url(self) -> str:
         return f"https://a.giuseppecord.com/{self.id}"
 
+    @computed_field  # type: ignore
+    @property
+    def country_flag_emoji(self) -> str:
+        return flag_lookup(self.country.upper())
+
 
 class UserStats(FrozenModel):
     tscore: int
@@ -47,4 +53,4 @@ class UserStats(FrozenModel):
 
 class User(FrozenModel):
     info: UserInfo
-    stats: Dict[int, UserStats]
+    stats: dict[int, UserStats]

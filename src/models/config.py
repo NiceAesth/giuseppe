@@ -3,17 +3,25 @@ from __future__ import annotations
 import logging
 
 import orjson
+from pydantic import Field
 
 from .base import FrozenModel
 
-
 logger = logging.getLogger("discord")
+
+
+class MongoConfig(FrozenModel):
+    host: str = "db:27017"
+    database: str = "giuseppe"
+    timeout: int = 1000
 
 
 class Config(FrozenModel):
     log_level: str = "INFO"
     prefix: str = ","
     token: str = ""
+    owners: list[int] = Field(default_factory=list)
+    mongo: MongoConfig = MongoConfig()
 
     @classmethod
     def _create_config(cls) -> None:

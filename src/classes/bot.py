@@ -8,6 +8,9 @@ from discord import User
 from discord.ext.commands import Bot
 from listeners import LOAD_EXTENSIONS as LISTENER_LOAD
 from models.config import Config
+from motor.motor_asyncio import AsyncIOMotorClient
+from repository.osu import OsuRepository
+from service.osu import OsuService
 from usecases.gulag_api import GulagClient
 
 
@@ -34,10 +37,23 @@ class Giuseppe(Bot):
             intents=Intents.all(),
         )
         init_logging(self.config.log_level)
-        self.gulag_client = GulagClient()
+        self.setup_db()
+        self.setup_services()
+
+    def setup_db(self) -> None:
+        logger.info("Setting up database...")
+        motor_client = AsyncIOMotorClient(
+            self.config.mongo.host,
+            serverSelectionTimeoutMS=self.config.mongo.timeout,
+        )
+        self.database = motor_client[self.config.mongo.database]
 
     def setup_services(self) -> None:
+        logger.info("Setting up repositories...")
+        self.osu_repository = OsuRepository(self.database)
         logger.info("Setting up services...")
+        self.osu_service = OsuService(self.osu_repository)
+        self.gulag_client = GulagClient()
 
     async def setup_hook(self) -> None:
         logger.info("Setting up modules...")
