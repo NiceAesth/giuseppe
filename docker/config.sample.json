@@ -1,0 +1,11 @@
+{
+  "log_level": "INFO",
+  "prefix": ",",
+  "token": "YOUR_DISCORD_TOKEN",
+  "owners": [151670779782758400, 140952316151857152],
+  "mongo": {
+    "host": "db:27017",
+    "database": "giuseppe",
+    "timeout": 1000
+  }
+}
