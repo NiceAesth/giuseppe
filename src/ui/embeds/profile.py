@@ -1,20 +1,19 @@
 from __future__ import annotations
 
 from discord import Embed
-
-from classes.osu.user import User
+from models.osu import User
 
 
 class ProfileEmbed(Embed):
     def __init__(self, user: User, mode: int, **kwargs):
         super().__init__(
             title=f"osu!{mode!r} Profile for {user.info.name}",
-            url=f"https://giuseppeosu.tk/u/{user.info.id}",
+            url=user.info.profile_url,
             description="",
             **kwargs,
         )
 
-        self.set_thumbnail(url=f"https://a.giuseppeosu.tk/{user.info.id}")
+        self.set_thumbnail(url=user.info.avatar_url)
         self.description += (
             f"{user.stats.get(mode).pp}pp (#{user.stats.get(mode).rank})"
         )

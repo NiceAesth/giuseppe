@@ -1,14 +1,13 @@
 from __future__ import annotations
 
-from dataclasses import dataclass
 from typing import Dict
 
-from dataclasses_json import dataclass_json
+from pydantic import computed_field
+
+from ..base import FrozenModel
 
 
-@dataclass_json
-@dataclass(frozen=True)
-class UserInfo:
+class UserInfo(FrozenModel):
     id: int
     name: str
     safe_name: str
@@ -18,10 +17,18 @@ class UserInfo:
     silence_end: int
     donor_end: int
 
+    @computed_field  # type: ignore
+    @property
+    def profile_url(self) -> str:
+        return f"https://giuseppecord.com/u/{self.id}"
 
-@dataclass_json
-@dataclass(frozen=True)
-class UserStats:
+    @computed_field  # type: ignore
+    @property
+    def avatar_url(self) -> str:
+        return f"https://a.giuseppecord.com/{self.id}"
+
+
+class UserStats(FrozenModel):
     tscore: int
     rscore: int
     pp: int
@@ -38,8 +45,6 @@ class UserStats:
     country_rank: int
 
 
-@dataclass_json
-@dataclass(frozen=True)
-class User:
+class User(FrozenModel):
     info: UserInfo
     stats: Dict[int, UserStats]

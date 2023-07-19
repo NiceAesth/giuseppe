@@ -40,7 +40,7 @@ class Mode(IntEnum):
         return GAMEMODE_REPR_LIST[self.value]
 
     @classmethod
-    async def convert(cls, ctx, argument):
+    async def convert(cls, ctx: commands.Context, argument) -> Mode:
         if argument.isnumeric():
             return cls(int(argument))
         mode_id = GAMEMODE_REPR_LIST.index(argument)
