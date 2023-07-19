@@ -1,12 +1,12 @@
 from __future__ import annotations
 
-import discord
+from classes.bot import Giuseppe
 from discord.ext import commands
 
 
 class OwnerCog(commands.Cog):
-    def __init__(self, bot: commands.Bot) -> None:
-        self.bot: commands.Bot = bot
+    def __init__(self, bot: Giuseppe) -> None:
+        self.bot: Giuseppe = bot
 
     @commands.is_owner()
     @commands.command(name="sync")
@@ -15,5 +15,5 @@ class OwnerCog(commands.Cog):
         await ctx.send("Syncing slash commands.")
 
 
-async def setup(bot: commands.Bot) -> None:
+async def setup(bot: Giuseppe) -> None:
     await bot.add_cog(OwnerCog(bot))

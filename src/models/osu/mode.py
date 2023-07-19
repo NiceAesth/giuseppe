@@ -4,6 +4,8 @@ from enum import IntEnum
 
 from discord.ext import commands
 
+__all__ = ("Mode",)
+
 GAMEMODE_REPR_LIST = (
     "std",
     "taiko",
@@ -40,7 +42,7 @@ class Mode(IntEnum):
         return GAMEMODE_REPR_LIST[self.value]
 
     @classmethod
-    async def convert(cls, ctx, argument):
+    async def convert(cls, ctx: commands.Context, argument) -> Mode:
         if argument.isnumeric():
             return cls(int(argument))
         mode_id = GAMEMODE_REPR_LIST.index(argument)

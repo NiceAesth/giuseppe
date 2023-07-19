@@ -2,13 +2,13 @@ from __future__ import annotations
 
 import time
 
-import discord
+from classes.bot import Giuseppe
 from discord.ext import commands
 
 
 class MiscCog(commands.Cog):
-    def __init__(self, bot: commands.Bot) -> None:
-        self.bot: commands.Bot = bot
+    def __init__(self, bot: Giuseppe) -> None:
+        self.bot: Giuseppe = bot
 
     @commands.hybrid_command(name="ping")
     async def ping_command(self, ctx: commands.Context) -> None:
@@ -18,5 +18,5 @@ class MiscCog(commands.Cog):
         await msg.edit(content=f"🏓 Pong!: {(t2-t1)*1000:.2f}ms")
 
 
-async def setup(bot: commands.Bot) -> None:
+async def setup(bot: Giuseppe) -> None:
     await bot.add_cog(MiscCog(bot))
