@@ -37,8 +37,6 @@ class ScoreSingleEmbed(Embed):
 class ScoreMultipleEmbed(Embed):
     def __init__(self, user: User, mode: Mode, scores: list[Score], **kwargs):
         super().__init__(
-            title=f"Top osu!{mode!r} plays for {user.info.name}",
-            url=user.info.profile_url,
             **kwargs,
         )
         self.set_author(
