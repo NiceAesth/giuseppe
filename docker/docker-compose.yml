@@ -11,7 +11,7 @@ services:
     image: ghcr.io/niceaesth/giuseppe:master
     container_name: giuseppe
     volumes:
-      - ./config.json:/home/appuser/config.json
+      - ./config.json:/home/appuser/config.json:ro
     depends_on:
       - db
 
