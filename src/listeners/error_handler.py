@@ -131,6 +131,7 @@ class CommandErrorHandler(commands.Cog):
                 "Please link your profile using the ``link`` command.",
                 delete_after=10,
             )
+            return
 
         embed = discord.Embed(
             title="Oh no! An unexpected error has occured",
