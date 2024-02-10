@@ -4,6 +4,7 @@ from typing import TYPE_CHECKING
 
 import aiohttp
 import orjson
+
 from common import BASE_GIUSEPPE_API_URL
 from common.helpers import add_param
 from common.helpers import from_list

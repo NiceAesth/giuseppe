@@ -1,7 +1,8 @@
 from __future__ import annotations
 
-from classes.bot import Giuseppe
 from discord.ext import commands
+
+from classes.bot import Giuseppe
 from models import osu
 from ui.embeds import ProfileEmbed
 from ui.embeds import ScoreMultipleEmbed

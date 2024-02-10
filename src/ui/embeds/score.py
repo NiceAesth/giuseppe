@@ -1,7 +1,8 @@
 from __future__ import annotations
 
-from common import humanizer
 from discord import Embed
+
+from common import humanizer
 from models.osu import Mode
 from models.osu import Score
 from models.osu import User
