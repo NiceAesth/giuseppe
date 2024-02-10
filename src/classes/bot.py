@@ -1,14 +1,15 @@
 from __future__ import annotations
 
-from cogs import LOAD_EXTENSIONS as COGS_LOAD
-from common.logging import init_logging
-from common.logging import logger
 from discord import Intents
 from discord import User
 from discord.ext.commands import Bot
+from motor.motor_asyncio import AsyncIOMotorClient
+
+from cogs import LOAD_EXTENSIONS as COGS_LOAD
+from common.logging import init_logging
+from common.logging import logger
 from listeners import LOAD_EXTENSIONS as LISTENER_LOAD
 from models.config import Config
-from motor.motor_asyncio import AsyncIOMotorClient
 from repository.osu import OsuRepository
 from service.osu import OsuService
 from usecases.gulag_api import GulagClient

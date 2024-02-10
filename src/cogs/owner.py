@@ -1,7 +1,8 @@
 from __future__ import annotations
 
-from classes.bot import Giuseppe
 from discord.ext import commands
+
+from classes.bot import Giuseppe
 
 
 class OwnerCog(commands.Cog):

@@ -1,19 +1,19 @@
 """
 This module contains models for mods.
 """
+
 from __future__ import annotations
 
 from collections import UserList
 from enum import IntEnum
 from enum import unique
 from functools import reduce
-from typing import Type
 from typing import TYPE_CHECKING
+from typing import Type
 
 from pydantic import GetCoreSchemaHandler
-from pydantic_core import core_schema
 from pydantic_core import CoreSchema
-
+from pydantic_core import core_schema
 
 if TYPE_CHECKING:
     from typing import Any

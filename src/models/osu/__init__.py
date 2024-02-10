@@ -1,4 +1,5 @@
-from __future__ import annotations
+# isort: dont-add-imports
+
 
 from .beatmap import Beatmap
 from .mode import Mode

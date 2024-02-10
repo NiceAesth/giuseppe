@@ -2,8 +2,9 @@ from __future__ import annotations
 
 import time
 
-from classes.bot import Giuseppe
 from discord.ext import commands
+
+from classes.bot import Giuseppe
 
 
 class MiscCog(commands.Cog):

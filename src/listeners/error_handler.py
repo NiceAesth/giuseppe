@@ -6,15 +6,16 @@ from __future__ import annotations
 from typing import TYPE_CHECKING
 
 import discord
-from common.logging import logger
 from discord.ext import commands
+
+from common.logging import logger
 from repository.osu import UserNotFound
 from usecases.gulag_api import GulagError
 
-
 if TYPE_CHECKING:
-    from classes.bot import Giuseppe
     from typing import Callable
+
+    from classes.bot import Giuseppe
 
 
 class CommandErrorHandler(commands.Cog):

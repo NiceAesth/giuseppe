@@ -1,4 +1,5 @@
-from __future__ import annotations
+# isort: dont-add-imports
+
 
 from pkgutil import iter_modules
 
