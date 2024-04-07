@@ -2,10 +2,10 @@ from __future__ import annotations
 
 from datetime import datetime
 
-from ..base import FrozenModel
-from .beatmap import Beatmap
-from .mode import Mode
-from .mods import Mods
+from models.base import FrozenModel
+from models.osu.beatmap import Beatmap
+from models.osu.mode import Mode
+from models.osu.mods import Mods
 
 __all__ = ("Score",)
 

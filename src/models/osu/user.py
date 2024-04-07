@@ -3,7 +3,9 @@ from __future__ import annotations
 from emojiflags.lookup import lookup as flag_lookup  # type: ignore
 from pydantic import computed_field
 
-from ..base import FrozenModel
+from common import BASE_GIUSEPPE_AVATAR_URL
+from common import BASE_GIUSEPPE_URL
+from models.base import FrozenModel
 
 __all__ = ("User", "UserInfo", "UserStats")
 

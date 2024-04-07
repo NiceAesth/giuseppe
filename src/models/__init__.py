@@ -1,9 +1,9 @@
 # isort: dont-add-imports
 
-from .base import BaseModel
-from .base import FrozenModel
-from .config import Config
-from .osu.mode import Mode
-from .osu.user import User
-from .osu.user import UserInfo
-from .osu.user import UserStats
+from models.base import BaseModel
+from models.base import FrozenModel
+from models.config import Config
+from models.osu.mode import Mode
+from models.osu.user import User
+from models.osu.user import UserInfo
+from models.osu.user import UserStats

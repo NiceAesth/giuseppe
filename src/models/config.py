@@ -5,7 +5,7 @@ import logging
 import orjson
 from pydantic import Field
 
-from .base import FrozenModel
+from models.base import FrozenModel
 
 logger = logging.getLogger("discord")
 
