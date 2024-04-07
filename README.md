@@ -14,3 +14,6 @@ cp config.sample.json config.json
 # edit config.json
 docker-compose up -d
 ```
+
+Note: If building the image manually, you need to copy Pipfile and Pipfile.lock to the `src/` directory and use that as the build context.
+Look at the [build workflow](.github/workflows/docker-image.yml) for more information.
