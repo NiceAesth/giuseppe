@@ -26,7 +26,7 @@ class UserInfo(FrozenModel):
     @computed_field  # type: ignore
     @property
     def avatar_url(self) -> str:
-        return f"https://a.giuseppecord.com/{self.id}"
+        return f"{BASE_GIUSEPPE_AVATAR_URL}/{self.id}"
 
     @computed_field  # type: ignore
     @property
