@@ -4,8 +4,8 @@ from datetime import datetime
 
 from pydantic import computed_field
 
-from ..base import FrozenModel
-from .mode import Mode
+from models.base import FrozenModel
+from models.osu.mode import Mode
 
 __all__ = ("Beatmap",)
 
