@@ -122,7 +122,7 @@ class CommandErrorHandler(commands.Cog):
 
         elif isinstance(error, GulagError):
             await send_message(
-                "The requested data could not be found.",
+                "Could not find the requested data. Perhaps the user is restricted or does not exist.",
                 delete_after=10,
             )
             return
